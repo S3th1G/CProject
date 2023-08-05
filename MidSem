@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int sumOfDigits(int num) {
+    int sum = 0;
+    while (num > 0) {
+        sum += num % 10;
+        num /= 10;
+    }
+    return sum;
+}
+
+int main() {
+    char choice;
+    do {
+        int number1, number2;
+
+        printf("Enter the first number: ");
+        scanf("%d", &number1);
+
+        printf("Enter the second number: ");
+        scanf("%d", &number2);
+
+        int sum1 = sumOfDigits(number1);
+        int sum2 = sumOfDigits(number2);
+
+        printf("The sum of digits of %d and %d ", number1, number2);
+
+        if (sum1 == sum2) {
+            printf("is the same.\n");
+        } else {
+            printf("is not the same.\n");
+        }
+
+        printf("Do you want to continue (Y/y for Yes, any other key to exit)? ");
+        scanf(" %c", &choice);
+    } while (choice == 'Y' || choice == 'y');
+
+    return 0;
+}
